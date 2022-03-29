@@ -16,4 +16,14 @@ public interface PosService {
     public List<Product> products();
 
     public Product randomProduct();
+
+    public void total(Cart cart);
+
+    public boolean delete(Cart cart, String productId); // delete an item in the cart by productId
+
+    public boolean modify(Cart cart, String productId, int amount); // modify amount of some item in the cart
+
+    public boolean empty(Cart cart);// empty the cart
+
+
 }

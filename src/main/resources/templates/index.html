@@ -155,16 +155,20 @@
 	</td>
 	<td class="text-center">
 		<div class="m-btn-group m-btn-group--pill btn-group mr-2" role="group" aria-label="...">
+            <a th:href="@{/sub/{id}(id=${item.product.id})}">
 																		<button type="button"
                                                                                 class="m-btn btn btn-default"><i
                                                                                 class="fa fa-minus"></i></button>
+            </a>
 																		<button type="button"
                                                                                 class="m-btn btn btn-default"
                                                                                 disabled><span
                                                                                 th:text="${item.quantity}"></span></button>
+                                                                        <a th:href="@{/add?pid={pid}(pid=${item.product.id})}">
 																		<button type="button"
                                                                                 class="m-btn btn btn-default"><i
-                                                                                class="fa fa-plus"></i></button>
+                                                                                class="fa fa-plus" ></i></button>
+                                                                            </a>
 																	</div>
 	</td>
 	<td>
@@ -173,7 +177,7 @@
 		</div> <!-- price-wrap .// -->
 	</td>
 	<td class="text-right">
-	<a href="" class="btn btn-outline-danger"> <i class="fa fa-trash"></i></a>
+	<a href="" class="btn btn-outline-danger" th:href="@{/delete/{id}(id=${item.product.id})}"> <i class="fa fa-trash"></i></a>
 	</td>
 </tr>
 </tbody>
@@ -192,7 +196,7 @@
                     </dl>
                     <dl class="dlist-align">
                         <dt>Sub Total:</dt>
-                        <dd class="text-right">$215</dd>
+                        <dd class="text-right" th:text="${cart.total}"></dd>
                     </dl>
                     <dl class="dlist-align">
                         <dt>Total:</dt>
@@ -200,11 +204,11 @@
                     </dl>
                     <div class="row">
                         <div class="col-md-6">
-                            <a href="#" class="btn  btn-default btn-error btn-lg btn-block"><i
+                            <a href="#" class="btn  btn-default btn-error btn-lg btn-block" th:href="@{/cancel}"><i
                                     class="fa fa-times-circle "></i> Cancel </a>
                         </div>
                         <div class="col-md-6">
-                            <a href="#" class="btn  btn-primary btn-lg btn-block"><i class="fa fa-shopping-bag"></i>
+                            <a href="#" class="btn  btn-primary btn-lg btn-block" th:href="@{/charge}"><i class="fa fa-shopping-bag"></i>
                                 Charge </a>
                         </div>
                     </div>
