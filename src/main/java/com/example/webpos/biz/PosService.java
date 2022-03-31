@@ -25,5 +25,7 @@ public interface PosService {
 
     public boolean empty(Cart cart);// empty the cart
 
+    public Product getProduct(String id);
+
 
 }

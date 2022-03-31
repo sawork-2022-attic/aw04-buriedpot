@@ -5,6 +5,8 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.springframework.cache.CacheManager;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Repository;
 
 import java.io.IOException;
@@ -19,10 +21,14 @@ public class JD implements PosDB {
     private List<Product> products = null;
 
     @Override
+    @Cacheable("products")
     public List<Product> getProducts() {
         try {
-            if (products == null)
+            System.out.println("get Data real-time");
+            if (products == null) {
+                System.out.println("get Data parse JD");
                 products = parseJD("Java");
+            }
         } catch (IOException e) {
             products = new ArrayList<>();
         }

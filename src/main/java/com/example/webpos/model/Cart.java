@@ -45,10 +45,13 @@ public class Cart implements Serializable {
                 else {
                     item1.setQuantity(newAmount);
                 }
+
+                System.out.println("has el: " + this);
                 return true;
             }
         }
         if (item.getQuantity() <= 0) return false;
+        System.out.println("new has el: " + this);
         return items.add(item);
     }
 

@@ -41,7 +41,7 @@ public class PosServiceImp implements PosService, Serializable {
     @Override
     public Cart add(Cart cart, String productId, int amount) {
 
-        Product product = posDB.getProduct(productId);
+        Product product = getProduct(productId);
         if (product == null) return cart;
 
         cart.addItem(new Item(product, amount));
@@ -74,4 +74,13 @@ public class PosServiceImp implements PosService, Serializable {
         return cart.empty();
     }
 
+    @Override
+    public Product getProduct(String productId) {
+        for (Product p : products()) {
+            if (p.getId().equals(productId)) {
+                return p;
+            }
+        }
+        return null;
+    }
 }
