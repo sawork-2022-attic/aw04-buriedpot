@@ -20,3 +20,4 @@ And it also fetches a product list from jd.com every time a session begins.
 
 Please **write a report** on the performance differences you notices among the above tasks.
 
+Report is in 'report.md'.
